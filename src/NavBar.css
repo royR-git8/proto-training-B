@@ -1,0 +1,112 @@
+
+
+.navbar {
+    width: 100%;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+
+    background-color: #20232a;
+
+    padding: 0 40px;
+
+    box-sizing: border-box;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 22px;
+    font-weight: bold;
+
+    margin-right: auto;
+}
+
+
+
+.react-icon {
+    font-size: 35px;
+
+    color: #61dafb;
+}
+
+
+
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+
+    gap: 30px;
+}
+
+
+
+.navbar-link {
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 17px;
+    font-weight: 500;
+
+    padding: 8px 12px;
+
+    border-radius: 5px;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+
+
+.navbar-link:hover {
+    background-color: #61dafb;
+
+    color: orangered;
+}
+
+
+
+.navbar-link:active {
+    transform: scale(0.97);
+}
+
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 0 15px;
+    }
+
+    .navbar-links {
+        gap: 5px;
+    }
+
+    .navbar-link {
+        font-size: 14px;
+
+        padding: 7px 8px;
+    }
+
+    .navbar-logo {
+        font-size: 17px;
+    }
+
+    .react-icon {
+        font-size: 28px;
+    }
+}
