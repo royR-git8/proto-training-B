@@ -12,9 +12,11 @@ const NavBar = () => {
             </Link>
 
             <div className="navbar-links">
-
                 <Link to="/" className="navbar-link">
-                    placeholder
+                    home
+                </Link>
+                <Link to="/employees" className="navbar-link">
+                    employees
                 </Link>
 
                 <Link to="/" className="navbar-link">
