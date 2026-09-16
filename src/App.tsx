@@ -1,8 +1,4 @@
 import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import { Route,Routes } from 'react-router'
 import './App.css'
 import './index.css'
 import './NavBar.css'
