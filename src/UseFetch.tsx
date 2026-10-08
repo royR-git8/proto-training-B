@@ -14,7 +14,6 @@ const useFetchData = (url: string): Employee[]=> {
                 const response = await fetch(url);
                 const json = await response.json();
                 setData(json);
-                console.log(data)
             } catch (error: any) {
                 setError(error)
                 console.log(error);
