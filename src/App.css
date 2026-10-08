@@ -110,6 +110,7 @@
   display: flex;
   gap: 8px;
   margin: 32px 0 0;
+  text-align: center;
 
   .logo {
     height: 18px;
@@ -184,9 +185,11 @@
 
 }
 .imgStyles{
-  width: 50rem;
-  height: 20rem;
-  align-items: center;
+  width: 10rem;
+  height: 10 rem;
+  display: block;
+  margin: auto;
+  
 }
 .table{
   size: 10rem;
