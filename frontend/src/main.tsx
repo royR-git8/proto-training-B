@@ -4,18 +4,16 @@ import './index.css'
 import App from './App.tsx'
 import { BrowserRouter, Route, Routes } from "react-router"
 import NavBar from './NavBar.tsx'
-import SetRoute from './SetEmpRoute.tsx'
+import FetchEmployeesFromBackend from './backendFetch.tsx'
 
 
-
-
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById('root')!).render(  
   <StrictMode>
     <BrowserRouter>
       <NavBar />
       <Routes>
         <Route path="/" element={<App />}></Route>
-        <Route path="/employees" element={< SetRoute />}></Route>
+        <Route path="/employees" element={< FetchEmployeesFromBackend />}></Route>
       </Routes>
     </BrowserRouter>
   </StrictMode>,

@@ -1,5 +1,4 @@
-import './Employees.css';
-import { useState } from 'react';
+import { useState } from "react";
 import { SearchBar } from "./SearchBar";
 import { FilteredTable } from "./EmployeeTable";
 
@@ -15,23 +14,26 @@ export type EmployeesProps = {
 }
 
 export type SearchBarProps = {
-    filterEmps: string;
-    setFilterEmps: (value: string) => void;
+    filterEmployees: string;
+    setFilterEmployees: (value: string) => void;
 }
-
+//the callback function the .filter uses to filter the employees with every possible field.
+function filteringMethods(employee: Employee, filterEmployees: string) {
+    return(
+    (employee.name?.toLowerCase().includes(filterEmployees.toLowerCase()) || (employee.country?.toLowerCase().includes(filterEmployees.toLowerCase())) || (employee.age?.toString().includes(filterEmployees.toString())))
+    )
+}
 function Employees({ employees }: EmployeesProps) {
     const [filterEmployees, setFilterEmployees] = useState("");
 
-    const filteredEmployees = employees.filter((emp) =>
-        (emp.name?.toLowerCase().includes(filterEmployees.toLowerCase()) || (emp.country?.toLowerCase().includes(filterEmployees.toLowerCase())) || (emp.age?.toString().includes(filterEmployees.toString())))
-    );
+    const filteredEmployees = employees.filter((employee)=> filteringMethods(employee,filterEmployees));
 
     return (
 
         <>
-   
-        <SearchBar filterEmps={filterEmployees} setFilterEmps={setFilterEmployees} />
-        <FilteredTable filteredEmployees={filteredEmployees} />
+
+            <SearchBar filterEmployees={filterEmployees} setFilterEmployees={setFilterEmployees} />
+            <FilteredTable filteredEmployees={filteredEmployees} />
         </>
 
     );

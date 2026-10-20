@@ -1,9 +1,9 @@
 
 import { useEffect, useState } from "react";
-import type { Employee } from "./Employees";
 import React from "react";
-const useFetchData = (url: string): Employee[]=> {
-    const [data, setData] = React.useState<Employee[]>([]);
+import { Employee } from "./Employees";
+const useEmployeeFetchData = (url: string): Employee[] => {
+    const [fetchedData, useFetchedData] = React.useState<Employee[]>([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
@@ -13,7 +13,7 @@ const useFetchData = (url: string): Employee[]=> {
             try {
                 const response = await fetch(url);
                 const json = await response.json();
-                setData(json);
+                useFetchedData(json);
             } catch (error: any) {
                 setError(error)
                 console.log(error);
@@ -23,10 +23,9 @@ const useFetchData = (url: string): Employee[]=> {
         };
 
         fetchData()
-
+        setTimeout(() => {
+        }, 500);
     }, [url]);
-
-
-    return data;
+    return Array.isArray(fetchedData) ? (fetchedData as Employee[]) : [];
 };
-export default useFetchData;
+export default useEmployeeFetchData;

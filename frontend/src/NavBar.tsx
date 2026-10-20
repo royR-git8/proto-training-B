@@ -3,14 +3,14 @@ import { BiLogoReact } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import './NavBar.css'
 const NavBar = () => {
+    console.log("1");
+    
     return (
         <nav className="navbar">
-
             <Link to="/" className="navbar-logo">
                 <BiLogoReact className="react-icon" />
                 <span>react logo</span>
             </Link>
-
             <div className="navbar-links">
                 <Link to="/" className="navbar-link">
                     home
@@ -18,17 +18,13 @@ const NavBar = () => {
                 <Link to="/employees" className="navbar-link">
                     employees
                 </Link>
-
                 <Link to="/" className="navbar-link">
                     ifk
                 </Link>
-
                 <Link to="/" className="navbar-link">
                     home
                 </Link>
-
             </div>
-
         </nav>
     );
 }

@@ -13,12 +13,12 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@mui/material": "^9.4.0",
+    "axios": "^1.20.0",
     "express": "^5.2.1",
-    "react": "^19.2.8",
-    "react-dom": "^19.2.8",
+    "link": "^2.1.2",
     "react-icons": "^5.7.0",
-    "react-router": "^7.18.3",
-    "react-router-dom": "^7.18.3"
+    "react-router": "^7.18.4",
+    "react-router-dom": "^7.18.4"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
@@ -32,6 +32,8 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.4",
     "globals": "^17.11.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.67.0",
     "vite": "^8.2.2"
