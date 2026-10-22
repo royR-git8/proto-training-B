@@ -1,6 +1,6 @@
 import Card from '@mui/material/Card';
 import type { Employee } from './Employees';
-type  FilteredTableProps = {
+export type  FilteredTableProps = {
     filteredEmployees: Employee[]
 }
 

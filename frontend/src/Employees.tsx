@@ -1,7 +1,8 @@
 import "./Employees.css";
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { SearchBar } from "./SearchBar";
 import { FilteredTable } from "./EmployeeTable";
+import { EmployeesFilteredContext } from "./employeesContext";
 
 export type Employee = {
     name: string,
@@ -18,22 +19,15 @@ export type SearchBarProps = {
     filterEmployees: string;
     setFilterEmployees: (value: string) => void;
 }
-//the callback function the .filter uses to filter the employees with every possible field.
-function filteringMethods(employee: Employee, filterEmployees: string) {
-    return(
-    (employee.name?.toLowerCase().includes(filterEmployees.toLowerCase()) || (employee.country?.toLowerCase().includes(filterEmployees.toLowerCase())) || (employee.age?.toString().includes(filterEmployees.toString())))
-    )
-}
+
 function Employees({ employees }: EmployeesProps) {
     const [filterEmployees, setFilterEmployees] = useState("");
-
-    const filteredEmployees = employees.filter((employee)=> filteringMethods(employee,filterEmployees));
-
+    employees=useContext(EmployeesFilteredContext)
+    console.log(EmployeesFilteredContext)
     return (
-
         <>
             <SearchBar filterEmployees={filterEmployees} setFilterEmployees={setFilterEmployees} />
-            <FilteredTable filteredEmployees={filteredEmployees} />
+            <FilteredTable filteredEmployees={employees} />
         </>
 
     );

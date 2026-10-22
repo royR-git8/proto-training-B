@@ -14,6 +14,7 @@ const useEmployeeFetchData = (url: string): Employee[] => {
                 const response = await fetch(url);
                 const json = await response.json();
                 useFetchedData(json);
+                console.log("hi im frontend fetch")
             } catch (error: any) {
                 setError(error)
                 console.log(error);
