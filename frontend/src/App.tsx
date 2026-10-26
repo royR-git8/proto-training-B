@@ -4,7 +4,6 @@ import './index.css'
 import './NavBar.css'
 
 function App() {
-  console.log("1")
   return (
     <>
       <body>
