@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import axios, { Axios, type AxiosResponse } from "axios";
+import axios, {  type AxiosResponse } from "axios";
 import type { Employee } from "./types";
 
 export function useEmployees({query}: {query?: string}) {
