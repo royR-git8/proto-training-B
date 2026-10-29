@@ -1,4 +1,3 @@
-import {z} from 'Zod'
 import express, {
     type Express,
     type Request,
@@ -7,29 +6,24 @@ import express, {
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 import employeesData from '../employees.json' with { type: 'json' };
+import type { Employee } from './types';
 const app: Express = express();
 const cors= require("cors");
 const corsOptions={
     origin:("http://localhost:5173")
 };
 app.use(cors(corsOptions))
-export const EmployeeSchema = z.object({
-  name: z.string().min(1, "Name is required"),
-  age: z.number().int().positive("Age must be a positive number"),
-  country: z.string().min(1, "Country is required"),
-  img: z.string().url("Img must be a valid URL string"), 
-});
-export type Employee = z.infer<typeof EmployeeSchema>;
 
 
-function filterEmployees(): Employee[] {
-    return Array.isArray(employeesData)
-        ? employeesData as Employee[]
+
+function filterEmployees(employees: unknown): Array<Employee> {
+    return Array.isArray(employees)
+        ? employees as Array<Employee>
         : [];
         
 }
 
-const employees: Employee[] = filterEmployees();
+const employees: Employee[] = filterEmployees(employeesData);
 
 const SEARCHABLE_FIELDS = [
     "name",

@@ -1,31 +1,12 @@
-import { useContext, useEffect } from "react";
-import axios from "axios";
-import type { SearchBarProps } from "./Employees";
-import { EmployeesFilteredContext } from "./employeesContext";
+ type SearchBarProps = {
+  filterEmployees: string;
+  setFilterEmployees: (value: string) => void;
+};
 
 export function SearchBar({
     filterEmployees,
     setFilterEmployees
 }: SearchBarProps) {
-
-    const context = useContext(EmployeesFilteredContext);
-
-    if (!context) {
-        throw new Error("EmployeesFilteredContext Provider is missing");
-    }
-
-    const { setEmployees } = context;
-
-    useEffect(() => {
-        axios.get(
-            `http://localhost:3000/employees?q=${(filterEmployees)}`
-        )
-        .then(response => {
-            setEmployees(response.data);
-        })
-        .catch(error => console.error("Error:", error));
-    }, [filterEmployees, setEmployees]);
-
     return (
         <div>
             <input

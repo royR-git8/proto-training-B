@@ -1,46 +1,32 @@
 import "./Employees.css";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { SearchBar } from "./SearchBar";
 import { FilteredTable } from "./EmployeeTable";
-import { EmployeesFilteredContext } from "./employeesContext";
+import { useEmployees } from "./useEmployees";
+import type { Employee } from "./types";
 
-export type Employee = {
-    name: string;
-    country: string;
-    age: number;
-    img: string;
-};
+
 
 export type EmployeesProps = {
-    employees: Employee[];
+  employees: Array<Employee>;
 };
 
-export type SearchBarProps = {
-    filterEmployees: string;
-    setFilterEmployees: (value: string) => void;
-};
 
-function Employees({ employees }: EmployeesProps) {
-    const [filterEmployees, setFilterEmployees] = useState("");
 
-    const [filteredEmployees, setFilteredEmployees] =
-        useState<Employee[]>(employees);
+function Employees() {
+  const [filterEmployees, setFilterEmployees] = useState("");
 
-    return (
-        <EmployeesFilteredContext.Provider
-            value={{
-                employees: filteredEmployees,
-                setEmployees: setFilteredEmployees
-            }}
-        >
-            <SearchBar
-                filterEmployees={filterEmployees}
-                setFilterEmployees={setFilterEmployees}
-            />
+  const { employees } = useEmployees({ query: filterEmployees });
 
-            <FilteredTable filteredEmployees={filteredEmployees} />
-        </EmployeesFilteredContext.Provider>
-    );
+  return (
+    <>
+      <SearchBar
+        filterEmployees={filterEmployees}
+        setFilterEmployees={setFilterEmployees}
+      />
+      <FilteredTable filteredEmployees={employees} />
+    </>
+  );
 }
 
 export default Employees;

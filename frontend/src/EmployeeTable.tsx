@@ -1,11 +1,12 @@
 import Card from '@mui/material/Card';
-import type { Employee } from './Employees';
+import type { Employee } from './types';
 export type  FilteredTableProps = {
-    filteredEmployees: Employee[]
+    filteredEmployees?: Array<Employee>
 }
 
 
 export function FilteredTable({filteredEmployees}:FilteredTableProps){
+    if (filteredEmployees === undefined) return <div>error</div>
     return(
                 <div style={{display:"flex", flexWrap:"wrap", gap:"2"}}>
                     {filteredEmployees.map((employee, index) => (
