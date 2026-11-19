@@ -3,7 +3,6 @@ import { BiLogoReact } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import './NavBar.css'
 const NavBar = () => {
-    console.log("1");
     
     return (
         <nav className="navbar">
