@@ -9,7 +9,12 @@ export const EmployeeSchema = z.object({
 export type Employee = z.infer<typeof EmployeeSchema>
 export const stylingForCards={width:"30%", margin:5, padding:10, backgroundColor:"darkslategrey"}
 export const stylingForDiv : React.CSSProperties = { display: "flex", flexWrap: "wrap", gap: "2" }
-
+export type City = {
+  id: number;
+  name: string;
+  description: string;
+  position: [number, number];
+}
    export const modalStyle = {
   position: "fixed",
   top: "50%",
