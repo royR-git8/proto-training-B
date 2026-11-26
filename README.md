@@ -73,3 +73,12 @@ export default defineConfig([
 ])
 
 ```
+
+## Git workflow
+
+- `main` and `dev` are protected: no direct commits, no direct pushes, no local merges.
+  They only change by merging an approved pull request on GitHub.
+- Branch from `dev` (or from the previous feature branch when stacking) and open a PR.
+- After cloning, run `scripts/install-hooks.sh` to enable the local guard hooks in `.githooks/`.
+- Local hooks can be skipped with `--no-verify`, so also enable branch protection
+  (require a PR and 1 approval, no direct pushes) for `main` and `dev` in the GitHub repo settings.

@@ -1,0 +1,5 @@
+#!/bin/sh
+. "$(dirname "$0")/protected-branches.sh"
+branch=$(git symbolic-ref --short -q HEAD)
+is_protected "$branch" && deny "direct commits to '$branch' are not allowed."
+exit 0
