@@ -24,6 +24,7 @@ function Employees() {
         filterEmployees={filterEmployees}
         setFilterEmployees={setFilterEmployees}
       />
+      <h3>click on any employee for additional information</h3>
       <FilteredTable filteredEmployees={employees} />
     </>
   );
