@@ -1,0 +1,8 @@
+#!/bin/sh
+. "$(dirname "$0")/protected-branches.sh"
+# stdin: <local ref> <local sha> <remote ref> <remote sha>
+while read -r _lref _lsha rref _rsha; do
+  name=${rref#refs/heads/}
+  [ "$name" != "$rref" ] && is_protected "$name" && deny "pushing to '$name' is not allowed."
+done
+exit 0

@@ -1,0 +1,5 @@
+#!/bin/sh
+. "$(dirname "$0")/protected-branches.sh"
+branch=$(git symbolic-ref --short -q HEAD)
+is_protected "$branch" && deny "local merges into '$branch' are not allowed; merge the approved PR on GitHub."
+exit 0
